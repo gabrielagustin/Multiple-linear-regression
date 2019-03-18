@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/python
+"""
+Created on Tue Oct 16 09:09:04 2018
+@author: gag 
+"""
+
+
 import selection
 import numpy as np
 import statistics
