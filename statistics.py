@@ -41,25 +41,6 @@ def calc_vif(matrix):
     return vif_list
 
 
-def deterCoeff(y,yAprox):
-    '''
-    Compute determination coefficient
-    '''
-    mean = np.mean(y)
-    SCT=0
-    SCR=0
-    ### variabilidad del modelo
-    for i in range (0,len(y)):
-        SCT = SCT + (y[i]-mean) * (y[i]-mean)
-    ### variabilidad explicada
-    for i in range (0,len(y)):
-        SCR = SCR + ((y[i]-yAprox[i]) * (y[i]-yAprox[i]))
-    R2 = 1-(SCR/SCT)
-    #R2 = sklearn.metrics.r2_score(y, yAprox)
-    #print "Coeficiente de determinación multiple Ṛ squared:" + str(R2)
-    return R2
-
-
 def RMSE(y,yAprox):
     '''
     Compute root-mean-square error
