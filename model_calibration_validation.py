@@ -8,14 +8,11 @@ Created on Tue Oct 16 09:09:04 2018
 import pandas as pd
 import statsmodels.formula.api as smf
 import selection
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import statistics
 import sklearn
 import lectura
-import MLPregression
-import Mars
 import copy
 import seaborn as sns
 
@@ -143,10 +140,6 @@ d = {'y': y, 'yAprox': yAprox}
 df = pd.DataFrame(data=d)
 RR = smf.ols('y ~ 1+ yAprox', df).fit().rsquared
 print("R^2 222: "+str(RR))
-
-
-
-
 
 
 df = pd.DataFrame({'yTraining':yTraining,
