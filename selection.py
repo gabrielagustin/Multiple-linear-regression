@@ -3,6 +3,10 @@
 """
 Created on Tue Oct 16 09:09:04 2018
 @author: gag 
+
+En este script se presentan diferentes métodos de selección de variables
+para el método de regresión lineal múltiple. 
+
 """
 
 import numpy as np
@@ -100,11 +104,6 @@ def vif_forward_selected(data, response):
     formula = "{} ~ {} + 1".format(response,
                                    ' + '.join(selected))
     return formula
-
-
-
-
-
 
 
 def shuffle(df):
