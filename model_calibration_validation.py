@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import statistics
 import sklearn
+from sklearn.model_selection import train_test_split
 import lectura
 import copy
 import seaborn as sns
@@ -51,11 +52,11 @@ type = "RMSE"
 #type = "R^2"
 var = "RSOILMOIST"
 porc = 0.75
-print("Porcentaje de datos de calculo: " + str(porc))
+print("Porcentaje de datos de entrenamiento: " + str(porc))
 
 
 #### division de los datos para entrenamiento y prueba
-dataTraining, dataTest = train_test_split(data, test_size=0.25)
+dataTraining, dataTest = train_test_split(data, test_size=1-porc) #0.25
 
 print("-------------------------------------------------------------------")
 print(dataTraining)
