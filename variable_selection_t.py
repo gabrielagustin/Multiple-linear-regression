@@ -42,9 +42,19 @@ dataNew = data.reset_index(drop=True)
 dataNew = data
 
 
-model1 = selection.forward_selected(data, response)
+model1 = selection.forward_selected(data, 'RSOILMOIST')
+formula = model1.model.formula
+print "Modelo planteado with forward selection and Rsquare: " + str(formula)
+print "R^2 del modelo: " + str(model.rsquared)
 
-model2 = selection.forward_selected.vif(data, response)
+
+
+model2 = selection.forward_selected.vif(data, 'RSOILMOIST')
+formula = model2.model.formula
+print "Modelo planteado with forward selection and VIF: " + str(formula)
+print "R^2 del modelo: " + str(model.rsquared)
+
+
 
 statistics.stats(dataNew,'SM_SMAP')
 
