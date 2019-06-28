@@ -41,6 +41,11 @@ dataNew = selection.shuffle(data)
 dataNew = data.reset_index(drop=True)
 dataNew = data
 
+
+model1 = selection.forward_selected(data, response)
+
+model2 = selection.forward_selected.vif(data, response)
+
 statistics.stats(dataNew,'SM_SMAP')
 
 matrix = np.array(dataNew)
