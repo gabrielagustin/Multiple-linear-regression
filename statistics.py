@@ -11,7 +11,6 @@ from numpy import linalg as LA
 from io import StringIO
 from scipy.linalg import *
 from sklearn import datasets, linear_model
-import RLM
 import statsmodels.formula.api as smf
 #import scikits.statsmodels.api as sm
 

@@ -56,7 +56,7 @@ def forward_selected(data, response):
     formula = "{} ~ {} + 1".format(response,
                                    ' + '.join(selected))
     model = smf.ols(formula, data).fit()
-    print (model.summary())
+    # print (model.summary())
     return model
 
 
@@ -99,7 +99,9 @@ def forward_selected_vif(data, response):
             current_score = best_new_score
     formula = "{} ~ {} + 1".format(response,
                                    ' + '.join(selected))
-    return formula
+    model = smf.ols(formula, data).fit()
+    # print (model.summary())
+    return model
 
 
 def shuffle(df):

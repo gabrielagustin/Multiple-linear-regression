@@ -5,18 +5,15 @@ Created on Tue Oct 16 09:09:04 2018
 @author: gag 
 """
 
-
-import selection
 import numpy as np
 import statistics
 import lectura
 import pandas as pd
 
+import selection_methods
 
-#### Etapa 3
 
-file = "DataSet_1km.csv"
-#file = "DataSet_9km.csv"
+file = "/home/gag/MyProjects/Multiple-linear-regression/DataSet_9km.csv"
 data = lectura.lecturaCompleta_etapa3(file)
 
 
@@ -37,30 +34,32 @@ data = lectura.lecturaCompleta_etapa3(file)
 # se mezclan las observaciones de las tablas
 # semilla para mezclar los datos en forma aleatoria
 np.random.seed(1)
-dataNew = selection.shuffle(data)
+dataNew = selection_methods.shuffle(data)
 dataNew = data.reset_index(drop=True)
 dataNew = data
 
 
-model1 = selection.forward_selected(data, 'RSOILMOIST')
+model1 = selection_methods.forward_selected(data, 'SM_SMAP')
 formula = model1.model.formula
-print "Modelo planteado with forward selection and Rsquare: " + str(formula)
-print "R^2 del modelo: " + str(model.rsquared)
+print("---------------------------------------------------------------------")
+print("Modelo planteado with forward selection and Rsquare: " + str(formula))
+print("R^2 del modelo: " + str(model1.rsquared))
+print("---------------------------------------------------------------------")
 
 
 
-model2 = selection.forward_selected.vif(data, 'RSOILMOIST')
+model2 = selection_methods.forward_selected_vif(data, 'SM_SMAP')
 formula = model2.model.formula
-print "Modelo planteado with forward selection and VIF: " + str(formula)
-print "R^2 del modelo: " + str(model.rsquared)
+print("Modelo planteado with forward selection and VIF: " + str(formula))
+print("R^2 del modelo: " + str(model2.rsquared))
 
 
 
-statistics.stats(dataNew,'SM_SMAP')
+# statistics.stats(dataNew,'SM_SMAP')
 
-matrix = np.array(dataNew)
-print("Orden de las variables")
-print(list(dataNew))
-print(statistics.calc_vif(matrix))
+# matrix = np.array(dataNew)
+# print("Orden de las variables")
+# print(list(dataNew))
+# print(statistics.calc_vif(matrix))
 
 
