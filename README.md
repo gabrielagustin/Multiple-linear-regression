@@ -7,7 +7,7 @@ The following methods were tested:
  
  - Forward selection 
  - Backward selection
- - Stepwise selection
+ - Stepwise selection (use the previous ones)
 
 by adjust of R-squared, Variance Inflation Factor (VIF), p-value, etc. 
 

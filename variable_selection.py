@@ -9,6 +9,7 @@ import numpy as np
 import statistics
 import lectura
 import pandas as pd
+import copy
 
 import selection_methods
 
@@ -48,18 +49,23 @@ print("---------------------------------------------------------------------")
 
 
 
-model2 = selection_methods.forward_selected_vif(data, 'SM_SMAP')
-formula = model2.model.formula
-print("Modelo planteado with forward selection and VIF: " + str(formula))
-print("R^2 del modelo: " + str(model2.rsquared))
+# model2 = selection_methods.forward_selected_vif(data, 'SM_SMAP')
+# formula = model2.model.formula
+# print("---------------------------------------------------------------------")
+# print("Modelo planteado with forward selection and VIF: " + str(formula))
+# print("R^2 del modelo: " + str(model2.rsquared))
+# print("---------------------------------------------------------------------")
 
 
 
-# statistics.stats(dataNew,'SM_SMAP')
 
-# matrix = np.array(dataNew)
-# print("Orden de las variables")
-# print(list(dataNew))
-# print(statistics.calc_vif(matrix))
+###  the stepwise method configured to function as backward elimination
+model3 = selection_methods.stepwise_selection(data, 'SM_SMAP') ##['Et', 'PP', 'Sigma0', 'T_s', 'T_s_modis']
+formula = model3.model.formula
+print("---------------------------------------------------------------------")
+print("Modelo planteado with backward selection and p-value: " + str(formula))
+print("R^2 del modelo: " + str(model3.rsquared))
+print("---------------------------------------------------------------------")
+
 
 
